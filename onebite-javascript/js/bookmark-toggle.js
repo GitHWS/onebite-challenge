@@ -11,7 +11,6 @@
     bookmarkOpen.style.display = 'none';
     bookmarkClose.style.display = 'flex';
   } else {
-    // 해당 로직 실행
     bookmarkBar.style.display = 'block';
     bookmarkOpen.style.display = 'flex';
     bookmarkClose.style.display = 'none';
