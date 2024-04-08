@@ -1,18 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-
-function CurrenyInput({ curreny, value, onChange }) {
-  return (
-    <div>
-      <label>{curreny} : </label>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(curreny, e.target.value)}
-      />
-    </div>
-  );
-}
+import CurrenyInput from './components/CurrenyInput';
 
 function App() {
   const exchangeRate = 1353;
