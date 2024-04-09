@@ -20,8 +20,7 @@ const Editor = ({ onCreate }) => {
   };
 
   const onKeydown = (e) => {
-    // e.keyCode === 13과 동일
-    if (e.code === 'Enter') {
+    if (e.keyCode === 13) {
       onSubmit();
     }
   };
