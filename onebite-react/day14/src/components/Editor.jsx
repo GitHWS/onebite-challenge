@@ -20,6 +20,14 @@ const Editor = ({ onCreate }) => {
   };
 
   const onKeydown = (e) => {
+    // if (e.nativeEvent.isComposing) return;
+    // if (e.key === 'Enter') {
+    //   console.log('💥 Enter 입력 감지');
+    //   console.log('KeyCode', e.keyCode);
+    //   console.log('✅ 엔터 발생 후 input value : ', e.target.value);
+    //   console.log('🤔 아직 입력 중인가?', e.nativeEvent.isComposing);
+    //   onSubmit();
+    // }
     if (e.keyCode === 13) {
       onSubmit();
     }
