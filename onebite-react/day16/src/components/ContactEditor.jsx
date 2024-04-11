@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import './ContactEditor.css';
 
-export default function ContactEditor({ onCreate }) {
+// Props인 onCreate를 App 컴포넌트에서 useCallback을 통해 리렌더링 시 재생성을 방지
+// -> React.memo를 통해 Props의 변경이 없을 시 리렌더링하지 않음
+function ContactEditor({ onCreate }) {
   const [contact, setContact] = useState({
     name: '',
     email: '',
@@ -70,3 +72,5 @@ export default function ContactEditor({ onCreate }) {
     </div>
   );
 }
+
+export default memo(ContactEditor);
