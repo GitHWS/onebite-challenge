@@ -42,6 +42,14 @@ export default function ContactEditor({ onCreate }) {
     });
   };
 
+  // Enter 입력 시에도 새로운 연락처가 생성되도록 함
+  const onKeydownEnter = (e) => {
+    if (e.nativeEvent.isComposing) return;
+    if (e.key === 'Enter') {
+      onCreateContact();
+    }
+  };
+
   return (
     <div className="ContactEditor">
       <div className="title">Add Contact</div>
@@ -53,6 +61,7 @@ export default function ContactEditor({ onCreate }) {
           placeholder="이름 ..."
           value={contact.name}
           onChange={onChange}
+          onKeyDown={onKeydownEnter}
         />
         <input
           ref={contactEmailRef}
@@ -61,6 +70,7 @@ export default function ContactEditor({ onCreate }) {
           placeholder="연락처(이메일) ..."
           value={contact.email}
           onChange={onChange}
+          onKeyDown={onKeydownEnter}
         />
       </div>
       <button onClick={onCreateContact}>Add</button>
