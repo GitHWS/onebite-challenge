@@ -3,8 +3,8 @@ import { useRef, useState, memo, useContext } from 'react';
 import { ContactDispatchContext } from '../App';
 
 function ContactEditor() {
-  // ✅ ContactDispatchContext의 onCreate 구조 분해 할당 후 사용
-  const { onCreate } = useContext(ContactDispatchContext);
+  // ✅ ContactDispatchContext의 onCreateContact 구조 분해 할당 후 사용
+  const { onCreateContact } = useContext(ContactDispatchContext);
   const [contact, setContact] = useState({
     name: '',
     email: '',
@@ -21,7 +21,7 @@ function ContactEditor() {
     });
   };
 
-  const onCreateContact = () => {
+  const addNewContact = () => {
     if (!contactNameRef.current.value) {
       contactNameRef.current.focus();
       return;
@@ -32,7 +32,7 @@ function ContactEditor() {
       return;
     }
 
-    onCreate({ id: contactIdRef.current++, ...contact });
+    onCreateContact({ id: contactIdRef.current++, ...contact });
     setContact({
       name: '',
       email: '',
@@ -43,7 +43,7 @@ function ContactEditor() {
   const onKeydownEnter = (e) => {
     if (e.nativeEvent.isComposing) return;
     if (e.key === 'Enter') {
-      onCreateContact();
+      addNewContact();
       contactNameRef.current.focus();
     }
   };
@@ -71,7 +71,7 @@ function ContactEditor() {
           onKeyDown={onKeydownEnter}
         />
       </div>
-      <button onClick={onCreateContact}>Add</button>
+      <button onClick={addNewContact}>Add</button>
     </div>
   );
 }

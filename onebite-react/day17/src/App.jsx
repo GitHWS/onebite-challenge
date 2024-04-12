@@ -19,17 +19,17 @@ export const ContactDispatchContext = createContext();
 function App() {
   const [contacts, dispatch] = useReducer(reducer, []);
 
-  const onCreate = useCallback((newContact) => {
+  const onCreateContact = useCallback((newContact) => {
     dispatch({ type: 'CREATE', data: newContact });
   }, []);
 
-  const onDelete = useCallback((targetId) => {
+  const onRemoveContact = useCallback((targetId) => {
     dispatch({ type: 'DELETE', targetId });
   }, []);
 
   // useMemo로 Context로 인해 전달되는 객체가 컴포넌트 리렌더링으로 인해 재생성되는 것을 방지
   const memoizedDispatch = useMemo(() => {
-    return { onCreate, onDelete };
+    return { onCreateContact, onRemoveContact };
   }, []);
 
   return (

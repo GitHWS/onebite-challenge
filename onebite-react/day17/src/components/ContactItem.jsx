@@ -3,18 +3,18 @@ import { memo, useContext } from 'react';
 import { ContactDispatchContext } from '../App';
 
 function ContactItem({ id, name, email }) {
-  // ✅ ContactDispatchContext의 onDelete 사용
-  const { onDelete } = useContext(ContactDispatchContext);
+  // ✅ ContactDispatchContext의 onRemoveContact 사용
+  const { onRemoveContact } = useContext(ContactDispatchContext);
 
-  const onDeleteContact = () => {
-    onDelete(id);
+  const deleteContact = () => {
+    onRemoveContact(id);
   };
 
   return (
     <div className="ContactItem">
       <div className="name">{name}</div>
       <div className="contact">{email}</div>
-      <button onClick={onDeleteContact}>🗑️ Remove</button>
+      <button onClick={deleteContact}>🗑️ Remove</button>
     </div>
   );
 }
