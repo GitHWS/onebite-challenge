@@ -37,12 +37,14 @@ function ContactEditor() {
       name: '',
       email: '',
     });
+    contactNameRef.current.focus();
   };
 
   const onKeydownEnter = (e) => {
     if (e.nativeEvent.isComposing) return;
     if (e.key === 'Enter') {
       onCreateContact();
+      contactNameRef.current.focus();
     }
   };
 
