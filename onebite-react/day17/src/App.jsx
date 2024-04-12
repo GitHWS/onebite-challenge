@@ -12,8 +12,9 @@ const reducer = (state, action) => {
   }
 };
 
-// ✅ ContactContext 생성
-export const ContactContext = createContext();
+// ✅ ContactStateContext, ContactDispatchContext 생성
+export const ContactStateContext = createContext();
+export const ContactDispatchContext = createContext();
 
 function App() {
   const [contacts, dispatch] = useReducer(reducer, []);
@@ -35,14 +36,16 @@ function App() {
     <div className="App">
       <h2>Contact List</h2>
       {/* ✅ ContactContext.Provider로 Context 데이터 제공 범위 설정 */}
-      <ContactContext.Provider value={memoizedDispatch}>
+      <ContactDispatchContext.Provider value={memoizedDispatch}>
         <section>
           <ContactEditor />
         </section>
-        <section>
-          <ContactList contacts={contacts} />
-        </section>
-      </ContactContext.Provider>
+        <ContactStateContext.Provider value={contacts}>
+          <section>
+            <ContactList />
+          </section>
+        </ContactStateContext.Provider>
+      </ContactDispatchContext.Provider>
     </div>
   );
 }

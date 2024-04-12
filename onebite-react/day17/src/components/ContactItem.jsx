@@ -1,10 +1,10 @@
 import './ContactItem.css';
 import { memo, useContext } from 'react';
-import { ContactContext } from '../App';
+import { ContactDispatchContext } from '../App';
 
 function ContactItem({ id, name, email }) {
-  // ✅ ContactContext의 onDelete 사용
-  const { onDelete } = useContext(ContactContext);
+  // ✅ ContactDispatchContext의 onDelete 사용
+  const { onDelete } = useContext(ContactDispatchContext);
 
   const onDeleteContact = () => {
     onDelete(id);

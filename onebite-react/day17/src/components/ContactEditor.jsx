@@ -1,10 +1,10 @@
 import './ContactEditor.css';
 import { useRef, useState, memo, useContext } from 'react';
-import { ContactContext } from '../App';
+import { ContactDispatchContext } from '../App';
 
 function ContactEditor() {
-  // ✅ ContactContext의 onCreate 구조 분해 할당 후 사용
-  const { onCreate } = useContext(ContactContext);
+  // ✅ ContactDispatchContext의 onCreate 구조 분해 할당 후 사용
+  const { onCreate } = useContext(ContactDispatchContext);
   const [contact, setContact] = useState({
     name: '',
     email: '',
