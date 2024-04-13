@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import {} from 'react-router-dom';
 
 const Diary = () => {
   const { id } = useParams();
