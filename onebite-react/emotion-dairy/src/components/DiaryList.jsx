@@ -24,7 +24,6 @@ const DiaryList = ({ data }) => {
   };
 
   const sortedData = getSortedData();
-  console.log(sortedData);
 
   return (
     <div className="DiaryList">
