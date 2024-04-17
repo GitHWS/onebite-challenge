@@ -23,4 +23,5 @@ body {
 
 body {
   font-family: 'NanumPenScript';
+  display: flex;
 }
