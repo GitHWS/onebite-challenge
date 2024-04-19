@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { getStringedDate } from '../util/get-stringed-date';
 import useDiary from '../hooks/useDiary';
+import usePageTitle from '../hooks/usePageTitle';
 
 import Header from '../components/Header';
 import Button from '../components/Button';
@@ -11,6 +12,8 @@ const Diary = () => {
   const nav = useNavigate();
 
   const curDiaryItem = useDiary(id);
+
+  usePageTitle(`${id}번 일기`);
 
   if (!curDiaryItem) {
     return <div>데이터 로딩 중...</div>;
